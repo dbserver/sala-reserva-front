@@ -10,6 +10,7 @@ import { ReservaFormularioComponent } from './reserva-formulario/reserva-formula
     CommonModule,
     FormsModule
   ],
-  declarations: [ReversaListagemComponent, ReservaFormularioComponent]
+  declarations: [ReversaListagemComponent, ReservaFormularioComponent],
+  exports: [ReversaListagemComponent, ReservaFormularioComponent]
 })
 export class ReservaModule { }
