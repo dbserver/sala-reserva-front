@@ -7,13 +7,15 @@ import { SharedModule } from './shared/shared.module';
 
 import { ReversaListagemComponent } from './reserva/reversa-listagem/reversa-listagem.component';
 import { ReservaFormularioComponent } from './reserva/reserva-formulario/reserva-formulario.component';
+import { ReniaoListagemComponent } from './reuniao/reniao-listagem/reniao-listagem.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ReservaFormularioComponent,
-    ReversaListagemComponent
+    ReversaListagemComponent,
+    ReniaoListagemComponent
   ],
   imports: [
     BrowserModule,
