@@ -1,3 +1,4 @@
+import { ReservaService } from './../reserva.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReversaListagemComponent implements OnInit {
 
-  constructor() { }
+  private reservas: any[];
+
+  constructor(private reservaService: ReservaService) {
+    this.reservas = reservaService.getReservas();
+  }
 
   ngOnInit() {
   }

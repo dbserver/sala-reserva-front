@@ -1,3 +1,37 @@
-<p>
-  reserva-formulario works!
-</p>
+<fieldset>
+  <div class="form-group row">
+    <label for="id" class="col-md-2 col-form-label">Id</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" id="id" disabled [(ngModel)]="reserva.id">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="sala" class="col-md-2 col-form-label">Sala</label>
+    <div class="col-md-4">
+      <input class="form-control" type="number" id="sala" [(ngModel)]="reserva.sala.id">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email" class="col-md-2 col-form-label">E-mail</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" id="email" [(ngModel)]="reserva.email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+      <label for="dataInicio" class="col-md-2 col-form-label">Data Início</label>
+      <div class="col-md-4">
+        <input class="form-control" type="date" id="dataInicio" [(ngModel)]="reserva.periodo.dataInicio">
+      </div>
+  </div>
+
+  <div class="form-group row">
+      <label for="dataInicio" class="col-md-2 col-form-label">Data Fim</label>
+      <div class="col-md-4">
+        <input class="form-control" type="date" id="dataInicio" [(ngModel)]="reserva.periodo.dataFim">
+      </div>
+  </div>
+
+</fieldset>
