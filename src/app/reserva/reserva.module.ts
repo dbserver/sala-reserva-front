@@ -1,6 +1,6 @@
 import { ReservaService } from './reserva.service';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { ReversaListagemComponent } from './reversa-listagem/reversa-listagem.component';
@@ -11,10 +11,18 @@ import { ReservaRoutingModule } from './reserva.routing.module';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ReservaRoutingModule
   ],
-  declarations: [ReversaListagemComponent, ReservaFormularioComponent],
-  exports: [ReversaListagemComponent, ReservaFormularioComponent],
-  providers: [ReservaService]
+  declarations: [
+    ReversaListagemComponent,
+    ReservaFormularioComponent],
+  exports: [
+    ReversaListagemComponent,
+    ReservaFormularioComponent
+  ],
+  providers: [
+    ReservaService
+  ]
 })
 export class ReservaModule { }

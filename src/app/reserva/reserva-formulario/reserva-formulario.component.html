@@ -1,37 +1,53 @@
-<fieldset>
-  <div class="form-group row">
-    <label for="id" class="col-md-2 col-form-label">Id</label>
-    <div class="col-md-4">
-      <input class="form-control" type="text" id="id" disabled [(ngModel)]="reserva.id">
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-group" [ngClass]="aplicaCssErro('id')">
+    <div class="col-sm-12">
+      <label for="id" class="control-label">Id</label>
+    </div>
+    <div class="col-sm-12">
+      <input class="form-control" type="text" id="id" formControlName="id" disabled placeholder="Id">
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="sala" class="col-md-2 col-form-label">Sala</label>
-    <div class="col-md-4">
-      <input class="form-control" type="number" id="sala" [(ngModel)]="reserva.sala.id">
+  <div class="form-group" [ngClass]="aplicaCssErro('sala.id')" formGroupName="sala">
+    <div class="col-sm-12">
+      <label for="sala" class="control-label">Sala</label>
+    </div>
+    <div class="col-sm-12">
+      <input class="form-control" type="number" id="sala" formControlName="id" placeholder="Sala">
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="email" class="col-md-2 col-form-label">E-mail</label>
-    <div class="col-md-4">
-      <input class="form-control" type="text" id="email" [(ngModel)]="reserva.email">
+
+  <div class="form-group" [ngClass]="aplicaCssErro('email')">
+    <div class="col-sm-12">
+      <label for="email" class="control-label">E-mail</label>
+    </div>
+    <div class="col-sm-12">
+      <input class="form-control" type="text" id="email" formControlName="email" placeholder="E-mail">
     </div>
   </div>
 
-  <div class="form-group row">
-      <label for="dataInicio" class="col-md-2 col-form-label">Data Início</label>
-      <div class="col-md-4">
-        <input class="form-control" type="date" id="dataInicio" [(ngModel)]="reserva.periodo.dataInicio">
-      </div>
+  <div class="form-group" formGroupName="periodo">
+    <div class="col-sm-3" [ngClass]="aplicaCssErro('periodo.dataInicio')">
+      <label for="dataInicio" class="control-label">Data Início</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" type="date" id="dataInicio" formControlName="dataInicio">
+    </div>
+
+    <div class="col-sm-3" [ngClass]="aplicaCssErro('periodo.dataFim')">
+      <label for="dataFim" class="control-label">Data Fim</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" type="text" id="dataFim" formControlName="dataFim">
+    </div>
   </div>
 
-  <div class="form-group row">
-      <label for="dataInicio" class="col-md-2 col-form-label">Data Fim</label>
-      <div class="col-md-4">
-        <input class="form-control" type="date" id="dataInicio" [(ngModel)]="reserva.periodo.dataFim">
-      </div>
+  <div class="form-group" [ngClass]="aplicaCssErro('periodo.dataFim')" formGroupName="periodo">
+    
   </div>
 
-</fieldset>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <button class="btn" (click)="resetar()">Resetar</button>
+
+</form>
