@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReversaListagemComponent } from './reversa-listagem.component';
+import { ReversaListagemComponent } from './reserva-listagem.component';
 
-describe('ReversaListagemComponent', () => {
+describe('ReservaListagemComponent', () => {
   let component: ReversaListagemComponent;
   let fixture: ComponentFixture<ReversaListagemComponent>;
 
