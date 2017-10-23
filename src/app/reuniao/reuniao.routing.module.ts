@@ -5,14 +5,14 @@ import { ReuniaoFormularioComponent } from './reuniao-formulario/reuniao-formula
 import { ReniaoListagemComponent } from './reniao-listagem/reniao-listagem.component';
 import { AuthGuard } from './../guards/auth.guard';
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
     { path: 'reunioes', component: ReniaoListagemComponent, canActivate: [AuthGuard]},
     { path: 'reuniao/:id', component: ReuniaoFormularioComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
-    imports:[RouterModule.forChild(appRoutes)],
-    exports:[RouterModule]
+    imports: [RouterModule.forChild(appRoutes)],
+    exports: [RouterModule]
 })
 export class ReuniaoRoutingModule {
 

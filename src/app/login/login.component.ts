@@ -11,14 +11,14 @@ import { AuthService } from './auth.service';
 export class LoginComponent implements OnInit {
 
   @Input()
-  private usuario: Usuario = new Usuario();
- 
+  usuario: Usuario = new Usuario();
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  fazerLogin(){
+  fazerLogin() {
     this.authService.fazerLogin(this.usuario);
   }
 

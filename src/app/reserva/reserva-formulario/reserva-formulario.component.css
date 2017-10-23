@@ -1,0 +1,55 @@
+h2 {
+      text-align: right !important;
+      margin-top: 7.5px; 
+}
+
+.input-group .form-control {
+    margin: 0px !important;
+}
+
+.card {
+    border: 1px solid #eee;
+    border-radius: 2.5px;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+    padding-top: 25px; 
+}
+
+.card:hover {
+   background-color: #FAFAFA;
+}
+
+.number-card {
+    background: white;
+    color: #64C832;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    padding-top: 8px;
+    border: 2px solid #000;
+    border-radius: 100px;
+    -moz-border-radius: 15px;
+    border: 1px solid #eee;
+    margin-left: -25px;
+    margin-top: -7.5px;
+    font-family:Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;    
+}
+
+.number-card:hover{
+    background-color: #64C832;
+    color: #FFF;
+}
+
+.periodo {
+    margin: 5px;
+}
+
+.btn-outline-info {
+    margin: 10px;
+}
+
+.form-horizontal .control-label {
+    text-align: right;
+}

@@ -32,13 +32,15 @@ export class ReservaFormularioComponent extends FormularioBase implements OnInit
   private inicializarFormulario() {
     this.formulario = this.formBuilder.group({
       id: [null],
-      titulo : [null, [Validators.required]],
+      titulo: [null, [Validators.required]],
       sala: this.formBuilder.group({
         id: [null, [Validators.required]]
       }),
       periodo: this.formBuilder.group({
         dataInicio: [null, [Validators.required]],
-        dataFim: [null, [Validators.required]]
+        dataFim: [null, [Validators.required]],
+        horaInicio: [null, [Validators.required]],
+        horaFim: [null, [Validators.required]],
       }),
       email: [null, [Validators.required, Validators.email]]
     });
@@ -52,7 +54,7 @@ export class ReservaFormularioComponent extends FormularioBase implements OnInit
       if (this.reserva == null) {
         this.router.navigate(['/naoEncontrado']);
       }
-            
+
       this.formulario.patchValue(this.reserva);
     });
   }
@@ -62,7 +64,4 @@ export class ReservaFormularioComponent extends FormularioBase implements OnInit
 
     this.reservaService.salvar(this.formulario.value);
   }
-
-  
-
 }

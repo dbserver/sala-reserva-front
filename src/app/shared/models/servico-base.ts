@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 export class ServicoBase {
 
-    protected URL_PADRAO: string = "http://127.0.0.1:8080/";
+    protected URL_PADRAO: string = 'http://127.0.0.1:8080/';
 
     @Injectable()
     protected httpClient: HttpClient;
@@ -13,7 +13,7 @@ export class ServicoBase {
     }
 
     public listaTodos() {
-        //this.httpClient.get(this.URL_PADRAO + this.urlDoServico);
+        // this.httpClient.get(this.URL_PADRAO + this.urlDoServico);
         return this.arrayColecao;
     }
 
@@ -29,7 +29,7 @@ export class ServicoBase {
         return null;
     }
 
-  
+
 
 
 

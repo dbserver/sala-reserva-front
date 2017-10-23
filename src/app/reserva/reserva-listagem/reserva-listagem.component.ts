@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservaListagemComponent implements OnInit {
 
-  private reservas: any[];
+  reservas: any[];
 
   constructor(private reservaService: ReservaService) {
     this.reservas = reservaService.listaTodos();

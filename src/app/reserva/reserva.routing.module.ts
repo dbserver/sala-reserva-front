@@ -6,14 +6,14 @@ import { ReservaFormularioComponent } from './reserva-formulario/reserva-formula
 import { ReservaListagemComponent } from './reserva-listagem/reserva-listagem.component';
 import { AuthGuard } from './../guards/auth.guard';
 
-const appRoutes:Routes = [
-    { path: 'reservas', component: ReservaListagemComponent, canActivate: [AuthGuard]},
-    { path: 'reserva/:id', component: ReservaFormularioComponent, canActivate: [AuthGuard]}
+const appRoutes: Routes = [
+    { path: 'reservas', component: ReservaListagemComponent, canActivate: [AuthGuard] },
+    { path: 'reserva/:id', component: ReservaFormularioComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
-    imports:[RouterModule.forChild(appRoutes)],
-    exports:[RouterModule]
+    imports: [RouterModule.forChild(appRoutes)],
+    exports: [RouterModule]
 })
 export class ReservaRoutingModule {
 

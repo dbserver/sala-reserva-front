@@ -11,7 +11,7 @@ export class ApplicationHttpInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         // let token: string = localStorage.getItem('token');
-        let token = "token";
+        const token = 'token';
         const newRequest = req.clone(
             {
                 setHeaders: {
@@ -28,11 +28,11 @@ export class ApplicationHttpInterceptor implements HttpInterceptor {
             switch (response.status) {
                 case 401:
                     console.log('Erro 401', response);
-                    this.router.navigate(["/login"]);
+                    this.router.navigate(['./login']);
                     break;
                 case 404:
                     console.log('Erro 404', response);
-                    this.router.navigate(["/404"]);
+                    this.router.navigate(['/404']);
                     break;
                 default:
                     console.log('Processing http error', response);

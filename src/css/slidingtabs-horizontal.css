@@ -1,0 +1,337 @@
+﻿/*
+ * Sliding Tabs - jQuery Plugin
+ * Copyright 2012, Christian André
+ *
+ * CHANGING THE WIDTH: To change the width of the tabs layout see line 14.
+ *
+------------------------------------------------------------------------------------- */
+
+.st_horizontal { /* The main container */
+	position:relative;
+	float:left;
+	width:940px; /* Set the full width */
+	color:#616161;
+
+	margin:10px 0;
+}
+
+/* Control buttons
+------------------------------------------------------------------------------------- */
+.st_horizontal a.st_prev,
+.st_horizontal a.st_next { /* Directional buttons (previous/next) */
+	position:absolute;
+	top:0px;
+	z-index:110;
+	display:none;
+	height:30px;
+	width:30px;
+	outline:none;
+	background-color:#00603c;
+}
+
+.st_horizontal a.st_prev { /* Previous button */
+	left:0px;
+	background-image:url(../imgs/icons/leftArrow7x11-colorfeef00.png);
+	background-position:11px 10px;
+	background-repeat:no-repeat;
+}
+
+.st_horizontal a.st_prev:hover { /* Previous button hover */
+}
+
+.st_horizontal a.st_next { /* Next button */
+	right:0px;
+	background-image:url(../imgs/icons/rightArrow7x11-colorfeef00.png);
+	background-position:14px 10px;
+	background-repeat:no-repeat;
+}
+
+.st_horizontal a.st_next:hover { /* Next button hover */
+
+}
+
+.st_horizontal a.st_prev.st_btn_disabled,
+.st_horizontal a.st_next.st_btn_disabled { /* Previous and next buttons disabled state */
+	cursor:default;
+}
+
+.st_horizontal a.st_prev.st_btn_disabled { /* Previous button disabled state */
+	background-image:url(../imgs/icons/leftArrow7x11-colorfff.png);
+}
+
+.st_horizontal a.st_next.st_btn_disabled { /* Next button disabled state */
+	background-image:url(../imgs/icons/rightArrow7x11-colorfff.png);
+}
+
+/* Tabs
+------------------------------------------------------------------------------------- */
+.st_horizontal div.st_tabs_container { /* Tabs main container */
+	position:relative;
+	z-index:100;
+	width:100% !important;
+	/*height:40px;*/
+	margin-bottom:-1px;
+	/*overflow:hidden;*/
+	background-color: #007e28;
+}
+
+.st_horizontal div.st_slide_container { /* Tabs slide-container */
+/*	position:relative !important;  The tabs position will be calculated from ul.tabs first parent element with position:relative */
+	overflow: hidden;
+}
+.st_tabs_mask{
+	position:relative;
+	overflow:visible !important;
+	width: 880px;
+	margin: 0;
+}
+.st_sliding_active .st_tabs_mask{
+	margin: 0 30px;
+}
+.st_horizontal div.st_sliding_active div.st_slide_container { /* The .st_sliding_active class is added to the div.st_tabs_container element when tab sliding is activated */
+overflow:hidden;
+ /* 	margin:0px 30px;Adds side margins to make space for the arrow buttons */
+	background-color: #146E37;
+}
+
+.st_horizontal .st_tabs { /* Tabs unordered list */
+	width:10000px; /* Set to an arbitrary high value */
+	height:30px;
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.st_horizontal .st_tabs .sub_st_tabs{
+	border:1px solid #5db12f;
+	position:absolute;
+	z-index: 222;
+	width: 213px;
+}
+.st_horizontal .st_tabs > .sub_st_tabs{
+	display:none;
+}
+.st_horizontal .st_tabs .sub_st_tabs ul{
+/*	margin-left:200px;
+	margin-top:-32px;*/
+	display:none;
+}
+.st_horizontal .st_tabs .last .sub_st_tabs ul{
+	position:relative;
+}
+.st_horizontal .st_tabs .sub_st_tabs > li{
+	float:none;
+	background-color:#f7f6f3 !important;
+}
+.st_horizontal .st_tabs .sub_st_tabs ul li{
+	background-color:#fff !important;
+	border:1px solid transparent !important;
+	padding-left: 9px;
+}
+.st_horizontal .st_tabs > li.node{
+	padding-right: 5px;
+}
+.st_horizontal .st_tabs > li.node > .sub_st_tabs{
+	display:none;
+}
+.st_horizontal .st_tabs > li.node:hover > .sub_st_tabs{
+	display:block !important;
+}
+.st_horizontal .st_tabs li { /* Tab list elements */
+	float:left;
+/*	position:relative;*/
+	background-color:#007e28;
+}
+.st_horizontal .st_tabs li:hover > ul{
+/*	display:block;*/
+}
+.st_horizontal .st_tabs li a { /* Tab links */
+	display:block;
+	margin:0px;
+	padding: 6px 15px;
+	font-size:13px;
+	line-height:18px; /* Aligns the tabs to the bottom of the content container */
+	color:#ffffff;
+	text-decoration:none;
+	outline:none;
+}
+.st_horizontal .st_tabs li li a{
+	padding: 7px 16px 7px 16px;
+}
+.st_horizontal .st_tabs ul li{
+	background-color:#f7f6f3 !important;
+	border-top:1px solid #ffffff;
+}
+.st_horizontal .st_tabs ul a{
+	color:#847453;
+}
+.st_horizontal .st_tabs ul ul a,
+.st_horizontal .st_tabs ul ul li a:hover,
+.st_horizontal .st_tabs ul ul li:hover a{
+	color:#858585;
+}
+.st_horizontal .st_tabs li:hover { /* Tabs hover state */
+	color:#ffffff;
+	background-color:#64C832;
+}
+.st_horizontal .st_tabs .sub_st_tabs li a:hover{
+	color:#847453;
+}
+.st_horizontal .sub_st_tabs > li:hover {
+	background-color:#eaf1f7 !important;
+}
+.st_horizontal .sub_st_tabs > li.active {
+	background-color:#ebeae8 !important;
+}
+.st_horizontal .sub_st_tabs > li.active > a{
+	background:url(../imgs/icons/UpArrow5x9-color828282.png) no-repeat right 14px !important;
+}
+.st_horizontal ul ul ul > li.node > a{
+	background:url(../imgs/icons/downArrow8x6-color828282.png) no-repeat right 14px !important;
+}
+.st_horizontal ul ul ul > li.node.active > a{
+	color:#000 !important;
+	background:url(../imgs/icons/upArrow7x6-color0000.png) no-repeat right 14px !important;
+}
+
+.st_horizontal .sub_st_tabs .sub_st_tabs a:hover{
+	text-decoration:underline;
+}
+.st_horizontal .sub_st_tabs .sub_st_tabs > li:hover a{
+	color:#858585
+}
+
+.st_horizontal .st_tabs a.st_tab_active { /* Tab active/highlighted state */
+/*	color:#1ca5ec;
+	border-bottom-color:#fff;
+	background:#fff;*/
+}
+.st_horizontal .st_tabs .node{
+
+}
+.st_horizontal .st_tabs .last .node{
+	padding-left: 9px;
+}
+.st_horizontal .st_tabs .last a{
+	text-align:right;
+}
+.st_horizontal .st_tabs .node > a{
+	background-image:url(../imgs/icons/bottomArrow8x6-colorFFFFFF.png);
+	background-repeat:no-repeat;
+	background-position:right 12px;
+}
+.st_horizontal .sub_st_tabs .node > a{
+	background-position:right 14px;
+	margin-right: 15px;
+	display:inline-block;
+}
+.st_horizontal .st_tabs .last .node > a{
+	background-position:left 8px;
+}
+.st_horizontal .st_tabs ul .node > a{
+	background-image:url(../imgs/icons/bottomArrow5x9-color828282.png);
+}
+.st_horizontal .st_tabs .last  ul .node > a{
+	background-image:url(../imgs/icons/leftArrow5x9-color828282.png);
+}
+.st_horizontal .last .sub_st_tabs{
+	margin-left: -24px;
+}
+.st_horizontal .sub_st_tabs ul{
+	position: relative !important;
+	width: 100% !important;
+	border: 0 !important;
+}
+
+/* Content
+------------------------------------------------------------------------------------- */
+.st_horizontal div.st_view_container { /* Main content container */
+	position:relative;
+	z-index:5;
+	height:277px;
+	padding:20px 20px 23px; /* Set the padding for the content here */
+	border:1px solid #d4d4d4;
+	background-color:#fff;
+	overflow:hidden; /* To make the content scroll if Javascript is disabled, set to: auto */
+}
+
+.st_horizontal div.st_view { /* Slide-container for the content */
+	position:relative;
+	height:100%;
+	overflow:hidden;
+}
+
+.st_horizontal div.st_tab_view { /* Individual content containers */
+	display:none; /* Hides the content when Javascript is disabled */
+	width:100%;
+}
+
+.st_horizontal div.st_first_tab_view {
+	display:block;
+}
+
+.st_horizontal div.st_view h2 {
+	font-size:16px;
+	color:#454545;
+	margin:0 0 16px;
+	padding:0px;
+}
+
+.st_horizontal div.st_view p {
+	margin:14px 0 0;
+	padding:0px;
+}
+
+.st_horizontal div.st_view blockquote {
+	float:left;
+	width:315px;
+	margin:18px 14px 0 0;
+	padding:0 0 0 14px;
+	border-left:2px solid #5c5c5c;
+	font:italic 17px/21px Georgia, "Times New Roman", Times, serif;
+	color:#A8A8A8;
+}
+
+.st_horizontal div.st_view blockquote p {
+	margin:0px;
+}
+
+/* Bottom aligned tabs
+------------------------------------------------------------------------------------- */
+.st_horizontal.align_bottom a.st_prev,
+.st_horizontal.align_bottom a.st_next { /* Directional buttons (previous/next) */
+	border-bottom:1px solid #d4d4d4;
+}
+
+.st_horizontal.align_bottom a.st_prev { /* Previous button */
+	/* Reset top borders */
+	border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	/* Set bottom borders */
+	border-bottom-left-radius:4px;
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+}
+
+.st_horizontal.align_bottom a.st_next { /* Next button */
+	/* Reset top borders */
+	border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	/* Set bottom borders */
+	border-bottom-right-radius:4px;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+}
+
+.st_horizontal.align_bottom div.st_tabs_container { /* Tabs main container */
+	position:absolute; /* Absolute position the tabs container at the bottom of the main container */
+	bottom:-39px;
+	left:0px;
+	margin-bottom:0px;
+}
+
+.st_horizontal.align_bottom .st_tabs a.st_tab_active { /* Tab active/highlighted state */
+	border-top-color:#fff;
+	border-bottom-color:#d4d4d4;
+}

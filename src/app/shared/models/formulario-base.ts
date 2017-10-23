@@ -7,14 +7,14 @@ export class FormularioBase {
 
     protected id: number;
     protected inscricao: Subscription;
-    protected formulario: FormGroup;
+    public formulario: FormGroup;
 
     resetar() {
         this.formulario.reset();
     }
 
     aplicaCssErro(campo: string) {
-        let validAndTouched: boolean = this.verificaValidTouched(campo);
+        const validAndTouched: boolean = this.verificaValidTouched(campo);
 
         return {
             'has-error': validAndTouched,

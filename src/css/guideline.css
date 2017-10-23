@@ -1,0 +1,42 @@
+.orientacoes h1 {
+	font-size: 16px;
+	font-family: 'Calibri', Arial, Helvetica, sans-serif;
+    color: #333;
+	margin: 0;
+	margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.orientacoes {
+    font-size: 14px;
+    padding: 15px 15px 10px 15px;
+    background-color: #fffbeb;
+    border: 1px solid #faebcc;
+    border-radius: 8px;
+    width: 97% !important;
+    margin: 15px 0 15px 15px;
+}
+.orientacoes ul {
+	list-style: disc;
+	margin-left: 30px;
+}
+.orientacoes ul li {
+	margin-bottom: 6px;
+	line-height: 1.6em;
+}
+
+.code {
+	font-family: 'droid_sans_monoregular', "Courier New", Courier, monospace;
+	font-size: 11px;
+	padding: 0 5px;
+	background-color: #ddd;
+	border-radius: 3px;
+}
+
+.example {
+	background-color: #f0f0f0;
+	color: #555;
+	font-size: 16px;
+	padding: 40px 20px;
+	border: 1px solid #ddd;
+}

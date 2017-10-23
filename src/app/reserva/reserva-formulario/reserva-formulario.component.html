@@ -1,62 +1,126 @@
-<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <div class="form-group" [ngClass]="aplicaCssErro('id')">
-    <div class="col-sm-12">
-      <label for="id" class="control-label">Id</label>
-    </div>
-    <div class="col-sm-12">
-      <input class="form-control" type="text" id="id" formControlName="id" disabled placeholder="Id">
-    </div>
-  </div>
+<div class="content">
+  <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-  <div class="form-group" [ngClass]="aplicaCssErro('sala.id')" formGroupName="sala">
-    <div class="col-sm-12">
-      <label for="sala" class="control-label">Sala</label>
-    </div>
-    <div class="col-sm-12">
-      <input class="form-control" type="number" id="sala" formControlName="id" placeholder="Sala">
-    </div>
-  </div>
+    <p>Seja bem vindo ao sistema de agendamento da DBServer.Siga os passos para marcar uma reunião.</p>
 
-  <div class="form-group" [ngClass]="aplicaCssErro('titulo')">
-    <div class="col-sm-12">
-      <label for="sala" class="control-label">Titulo</label>
-    </div>
-    <div class="col-sm-12">
-      <input class="form-control" type="text" id="titulo" formControlName="titulo" placeholder="Titulo">
-    </div>
-  </div>
-
-
-  <div class="form-group" [ngClass]="aplicaCssErro('email')">
-    <div class="col-sm-12">
-      <label for="email" class="control-label">E-mail</label>
-    </div>
-    <div class="col-sm-12">
-      <input class="form-control" type="text" id="email" formControlName="email" placeholder="E-mail">
-    </div>
-  </div>
-
-  <div class="form-group" formGroupName="periodo">
-    <div class="col-sm-3" [ngClass]="aplicaCssErro('periodo.dataInicio')">
-      <label for="dataInicio" class="control-label">Data Início</label>
-    </div>
-    <div class="col-sm-3">
-      <input class="form-control" type="date" id="dataInicio" formControlName="dataInicio">
+    <div class="card">
+      <div class="form-group row" formGroupName="periodo">
+        <div class="col-sm-1 col-md-1 col-lg-1 number-card">
+          <span class="number-text">1</span>
+        </div>
+        <div class="col-sm-3 col-md-4 col-lg-4">
+          <h2>Data desejada</h2>
+        </div>
+        <div class="col-sm-8 col-md-7 col-lg-7">
+          <input class="form-control datepicker hasDatepicker" formControlName="dataFim" type="text">
+        </div>
+      </div>
     </div>
 
-    <div class="col-sm-3" [ngClass]="aplicaCssErro('periodo.dataFim')">
-      <label for="dataFim" class="control-label">Data Fim</label>
+    <div class="card">
+      <div class="form-group row">
+        <div class="col-sm-1 col-md-1 col-lg-1 number-card">
+          <span class="number-text">2</span>
+        </div>
+        <div class="col-sm-3 col-md-4 col-lg-4">
+          <h2>Período desejado</h2>
+        </div>
+
+        <div class="col-sm-8 col-md-7 col-lg-7" formGroupName="periodo">
+          <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-3">
+              <div class="input-group periodo">
+                <span class="input-group-addon">Das</span>
+                <input class="form-control periodo" type="time" id="horaInicio" formControlName="horaInicio">
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4 col-lg-3">
+              <div class="input-group periodo">
+                <span class="input-group-addon">Às</span>
+                <input class="form-control" type="time" id="horaFim" formControlName="horaFim">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-3">
-      <input class="form-control" type="date" id="dataFim" formControlName="dataFim">
+
+
+    <div class="card">
+      <div class="form-group row" [ngClass]="aplicaCssErro('sala.id')">
+        <div class="col-sm-1 col-md-1 col-lg-1 number-card">
+          <span class="number-text">3</span>
+        </div>
+
+        <div class="col-sm-3 col-md-4 col-lg-4">
+          <h2>Salas disponíveis</h2>
+        </div>
+        <div class="col-sm-8 col-md-7 col-lg-7">
+          <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <label class="btn btn-outline-info">
+                Sala 1
+              </label>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <label class="btn btn-outline-info">
+                Sala 2
+              </label>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <label class="btn btn-outline-info">
+                Sala 3
+              </label>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <label class="btn btn-outline-info">
+                Sala 4
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group" [ngClass]="aplicaCssErro('periodo.dataFim')" formGroupName="periodo">
+    <div class="card">
+      <div class="form-group row" [ngClass]="aplicaCssErro('titulo')">
+        <div class="col-sm-1 col-md-1 col-lg-1 number-card">
+          <span class="number-text">4</span>
+        </div>
 
-  </div>
+        <div class="col-sm-3 col-md-4 col-lg-4">
+          <h2>Descrição da reserva</h2>
+        </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Salvar</button>
-  <button class="btn" (click)="resetar()">Resetar</button>
+        <div class="col-sm-8 col-md-7 col-lg-7">
+          <input class="form-control" type="text" id="titulo" formControlName="titulo" placeholder="Descrição da reserva">
+        </div>
+      </div>
+    </div>
 
-</form>
+    <div class="card">
+      <div class="form-group row" [ngClass]="aplicaCssErro('email')">
+        <div class="col-sm-1 col-md-1 col-lg-1 number-card">
+          <span class="number-text">5</span>
+        </div>
+
+        <div class="col-sm-3 col-md-4 col-lg-4">
+          <h2>Confirmação</h2>
+        </div>
+
+        <div class="col-sm-8 col-md-7 col-lg-7 input-group">
+          <span class="input-group-addon">@</span>
+          <input class="form-control" type="text" id="email" formControlName="email" placeholder="E-mail">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid">Agendar</button>
+    </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
 import { Usuario } from './models/usuario';
 
@@ -18,8 +18,8 @@ export class AuthService {
   }
 
   fazerLogin(usuario: Usuario) {
-    if (usuario.nome === "usuario@email.com" &&
-      usuario.senha === "123456") {
+    if (usuario.nome === 'usuario@email.com' &&
+      usuario.senha === '123456') {
       this.usuarioAutenticado = true;
       this.mostrarMenuEmitter.emit(true);
       this.router.navigate(['/']);
